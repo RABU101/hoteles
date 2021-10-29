@@ -15,12 +15,13 @@ class RolesController < ApplicationController
         # Extraer los datos del params
         datos_rol = params.require(:rol).permit(:rol)
         # Asignando los datos en un nuevo rol
-        @nuevo_rol = Rol.new(datos_rol)
-        if @nuevo_rol.save
+        @rol = Rol.new(datos_rol)
+        if @rol.save
             # por verdad mostrar algo redirect_to
             redirect_to roles_path  # => /roles <- GET
         else
             # sino, tomar prestada una vista render
+            render :crear
         end
     end
 end

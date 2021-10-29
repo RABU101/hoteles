@@ -16,13 +16,14 @@ class CiudadesController < ApplicationController
         # nuevo_ciudad = {nombre: Tokio}
         #@nuevo_ciudad = Ciudad.new
         #@nuevo_ciudad.nombre = datos_ciudad[:nombre]
-        @nuevo_ciudad = Ciudad.new(datos_ciudad)
-        if @nuevo_ciudad.save
+        @ciudad = Ciudad.new(datos_ciudad)
+        if @ciudad.save
             # por verdad mostrar algo redirect_to
             puts ">GUARDADO<".center(20,"*")
-            redirect_to ciudades_path  # => /ciudad <- GET
+            redirect_to ciudades_path  # => /ciudad <- GET, usando alias
         else
             # sino, tomar prestada una vista render
+            render :crear   #redirecciona a def crear
         end
     end
 end

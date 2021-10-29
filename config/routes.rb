@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get  'roles/nuevo',    to: 'roles#crear'
   post 'roles',          to: 'roles#guardar'
   # Ciudades
-  get  'ciudades',       to: 'ciudades#listar', as: 'ciudades'
-  get  'ciudades/nuevo', to: 'ciudades#crear'
-  post 'ciudades',       to: 'ciudades#guardar' 
+  get  'ciudades',        to: 'ciudades#listar', as: 'ciudades'
+  get  'ciudades/nuevo',  to: 'ciudades#crear',  as: 'nueva_ciudad'
+  post 'ciudades',        to: 'ciudades#guardar' 
 end
