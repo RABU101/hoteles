@@ -1,24 +1,23 @@
 # Reciben peticiones y devuelven vistas
-class RolesController < ApplicationController
-    # GET /roles
+class CiudadesController < ApplicationController
+    # GET /ciudades
     def listar
-        @roles = Rol.all
+        @ciudades = Ciudad.all
     end
-    # GET /roles/nuevo
+    # GET /ciudades/nuevo
     def crear
         #mostrar formulario para guardar roles nuevos
-        #@mi_nombre = "Rodrigo Bravo Urzúa"
-        @rol = Rol.new
+        @ciudad = Ciudad.new
     end
-    # POST /roles
+    # POST /ciudades
     def guardar
         # Extraer los datos del params
-        datos_rol = params.require(:rol).permit(:rol)
+        datos_ciudad = params.require(:ciudad).permit(:nombre)
         # Asignando los datos en un nuevo rol
-        @nuevo_rol = Rol.new(datos_rol)
-        if @nuevo_rol.save
+        @nuevo_ciudad = Ciudad.new(datos_ciudad)
+        if @nuevo_ciudad.save
             # por verdad mostrar algo redirect_to
-            redirect_to roles_path  # => /roles <- GET
+            redirect_to ciudades_path  # => /ciudad <- GET
         else
             # sino, tomar prestada una vista render
         end

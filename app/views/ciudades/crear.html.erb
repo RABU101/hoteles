@@ -1,0 +1,9 @@
+<h1>Crear una nueva Ciudad</h1>
+
+<%= form_with(model: @ciudad) do |formulario| %>
+    <%= formulario.label        :nombre %>
+    <%= formulario.text_field   :nombre %>
+    <%= formulario.button "Cancelar" %>
+    <%= formulario.submit "Agregar" %>
+<% end %>
+
