@@ -6,17 +6,20 @@ class CiudadesController < ApplicationController
     end
     # GET /ciudades/nuevo
     def crear
-        #mostrar formulario para guardar roles nuevos
         @ciudad = Ciudad.new
     end
     # POST /ciudades
     def guardar
-        # Extraer los datos del params
+        # Extraer los datos por params y construlle un hash
+        #                       ciudad[nombre]
         datos_ciudad = params.require(:ciudad).permit(:nombre)
-        # Asignando los datos en un nuevo rol
+        # nuevo_ciudad = {nombre: Tokio}
+        #@nuevo_ciudad = Ciudad.new
+        #@nuevo_ciudad.nombre = datos_ciudad[:nombre]
         @nuevo_ciudad = Ciudad.new(datos_ciudad)
         if @nuevo_ciudad.save
             # por verdad mostrar algo redirect_to
+            puts ">GUARDADO<".center(20,"*")
             redirect_to ciudades_path  # => /ciudad <- GET
         else
             # sino, tomar prestada una vista render
