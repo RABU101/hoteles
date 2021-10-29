@@ -1,8 +1,19 @@
 <!-- <%= @roles.inspect %> -->
 <h1>Lista de Ciudades </h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Acciones</th>
+    </tr>
 <% @ciudades.each do |ciudad| %>
-    <div>
-        <%= ciudad.id %>
-        <%= ciudad.nombre %>
-    </div>
+    <tr>
+        <td>
+            <%= ciudad.id %> </td>
+        <td>
+            <%= ciudad.nombre %> </td>
+        <td>
+            [Editar] [Eliminar] </td>
+    </tr>
 <% end %> 
+</table>
