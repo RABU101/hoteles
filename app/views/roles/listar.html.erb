@@ -1,5 +1,7 @@
 <!-- <%= @roles.inspect %> -->
 <h1>Lista de Roles </h1>
+<span><%= link_to "Crear un nuevo rol", nuevo_rol_path %></span>
+
 <% @roles.each do |rol| %>
     <div>
         <%= rol.id %>

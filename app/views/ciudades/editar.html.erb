@@ -1,13 +1,8 @@
 <h1>Editar una Ciudad</h1>
+<span><%= link_to "Ver listado de ciudades", ciudades_path %></span>
 
-<%= form_with(model: @ciudad) do |formulario| %>
-    <%= formulario.label        :nombre %>
-    <%= formulario.text_field   :nombre %>
-    <% if @ciudad.errors[:nombre].any? %>
-    <div>
-        <%= @ciudad.errors[:nombre].first %>
-    </div>
-    <% end %>
-    <%= formulario.button "Cancelar" %>
-    <%= formulario.submit "Agregar" %>
-<% end %>
+<%= @ciudad.id %>
+<%= @ciudad.nombre %>
+
+
+

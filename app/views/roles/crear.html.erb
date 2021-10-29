@@ -1,4 +1,6 @@
 <h1>Crear un nuevo Rol</h1>
+<span><%= link_to "Ver listado de roles", roles_path %></span>
+
 <%= form_with(model: @rol) do |formulario| %>
     <%= formulario.label        :rol %>
     <%= formulario.text_field   :rol %>
@@ -9,4 +11,3 @@
     <% end %>    
     <%= formulario.submit "Crear" %>
 <% end %>
-

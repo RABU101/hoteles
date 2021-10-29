@@ -8,6 +8,11 @@ class CiudadesController < ApplicationController
     def crear
         @ciudad = Ciudad.new
     end
+    # GET /ciudades/editar
+    def editar
+        #@ciudad = Ciudad.find(params[:id])
+        @ciudad = Ciudad.find_by(id: params[:id])
+    end
     # POST /ciudades
     def guardar
         # Extraer los datos por params y construlle un hash

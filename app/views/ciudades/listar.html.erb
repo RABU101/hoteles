@@ -15,8 +15,9 @@
             <%= ciudad.id %> </td>
         <td>
             <%= ciudad.nombre %> </td>
-        <td>
-            [Editar] [Eliminar] </td>
+        <td>     
+            <%= link_to "Editar", editar_ciudad_path %>
+             [Eliminar] </td>
     </tr>
 <% end %> 
 </table>
