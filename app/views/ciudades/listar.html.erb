@@ -1,23 +1,27 @@
-<!-- <%= @roles.inspect %> -->
-<h1>Lista de Ciudades </h1>
+<h1>Lista de ciudades registradas</h1>
 
-<span><%= link_to "Crear una nueva ciudad", nueva_ciudad_path %></span>
+<%= link_to "Crear nueva ciudad", nueva_ciudad_path %>
 
 <table>
     <tr>
-        <th>ID</th>
+        <th>Id</th>
         <th>Nombre</th>
         <th>Acciones</th>
     </tr>
-<% @ciudades.each do |ciudad| %>
-    <tr>
-        <td>
-            <%= ciudad.id %> </td>
-        <td>
-            <%= ciudad.nombre %> </td>
-        <td>     
-            <%= link_to "Editar", editar_ciudad_path %>
-             [Eliminar] </td>
-    </tr>
-<% end %> 
+    <% @lista_ciudades.each do |c| %>
+        <tr>
+            <td>
+                <%= c.id %>
+            </td>            
+            <td>
+                <%= c.nombre %>
+            </td>
+            <td>
+                <%= link_to "Editar", editar_ciudad_path(c) %> <!-- /ciudades/4/editar -->
+                <%= link_to "Eliminar", ciudad_path(c), method: :delete %>
+            </td>
+        </tr>
+    <% end %>
+
+
 </table>

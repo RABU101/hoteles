@@ -2,9 +2,25 @@
 <h1>Lista de Roles </h1>
 <span><%= link_to "Crear un nuevo rol", nuevo_rol_path %></span>
 
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Noombre</th>
+        <th>Acciones</th>
+    </tr>
 <% @roles.each do |rol| %>
+    <tr>
+        <td><%= rol.id %></td>
+        <td><%= rol.rol %></td>
+        <td>
+            <%= link_to "Editar", editar_rol_path(rol) %> <!-- /roles/4/editar -->
+            <%= link_to "Eliminar", rol_path(rol), method: :delete %>
+        
+        </td>
+    </tr>
     <div>
-        <%= rol.id %>
-        <%= rol.rol %>
+        
+        
     </div>
 <% end %>
+</table>
