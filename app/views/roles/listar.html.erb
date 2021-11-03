@@ -1,26 +1,24 @@
-<!-- <%= @roles.inspect %> -->
-<h1>Lista de Roles </h1>
-<span><%= link_to "Crear un nuevo rol", nuevo_rol_path %></span>
-
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Noombre</th>
-        <th>Acciones</th>
-    </tr>
-<% @roles.each do |rol| %>
-    <tr>
-        <td><%= rol.id %></td>
-        <td><%= rol.rol %></td>
-        <td>
-            <%= link_to "Editar", editar_rol_path(rol) %> <!-- /roles/4/editar -->
-            <%= link_to "Eliminar", rol_path(rol), method: :delete %>
-        
-        </td>
-    </tr>
-    <div>
-        
-        
+<div class="card">
+    <div class="card-body">
+        <h3>Lista de Roles </h3>
+        <%= link_to "Crear nuevo rol", nuevo_rol_path, class: "btn btn-primary" %>
+        <table class="table table-hover" >
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Acciones</th>
+            </tr>
+            <% @roles.each do |rol| %>
+            <tr>
+                <td><%= rol.id %></td>
+                <td><%= rol.rol %></td>
+                <td>
+                    <%= link_to "Editar", editar_rol_path(rol), class: "btn btn-warning" %> 
+                    <%= link_to "Eliminar", rol_path(rol), method: :delete, class: "btn btn-danger" %>
+                
+                </td>
+            </tr>
+        <% end %>
+        </table>
     </div>
-<% end %>
-</table>
+</div>

@@ -1,0 +1,35 @@
+
+//archivos de estilos nuevos/personalizados
+@import 'ciudades';
+// fin
+@import '~bootstrap/scss/bootstrap';
+// formatos locales van al final
+$fondo-gris: #f4f7fa;
+$fondo-menu: #3d4c67;
+body {
+    background-color: $fondo-gris;
+}
+.menu-vertical {
+    position: fixed;
+    background: $fondo-menu;
+    height: 100%;
+    color: white;    
+}
+.titulo {
+    padding: 1rem;
+}
+li {
+    text-decoration: none;
+    color: white;
+}
+li a {
+    text-decoration: none;
+    color:white;
+    cursor: pointer;
+}
+li:hover {
+    background-color: white;
+    a {
+        color: $fondo-menu;
+    }
+}
