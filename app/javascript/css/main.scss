@@ -1,9 +1,19 @@
 
 //archivos de estilos nuevos/personalizados
 @import 'ciudades';
+// Todas las variables CSS van antes del import (si son de bootstrap)
+$primary: #000;
+$danger: orange;
+$warning: cyan;
+
 // fin
 @import '~bootstrap/scss/bootstrap';
 // formatos locales van al final
+// cambios que se quieren hacer, van después de la importación
+.btn {
+    border-radius: 1rem;
+}
+
 $fondo-gris: #f4f7fa;
 $fondo-menu: #3d4c67;
 body {
@@ -14,22 +24,25 @@ body {
     background: $fondo-menu;
     height: 100%;
     color: white;    
-}
-.titulo {
-    padding: 1rem;
-}
-li {
-    text-decoration: none;
-    color: white;
-}
-li a {
-    text-decoration: none;
-    color:white;
-    cursor: pointer;
-}
-li:hover {
-    background-color: white;
-    a {
-        color: $fondo-menu;
+    
+    .titulo {
+        padding: 1rem;
+    }
+    
+    ul {
+        list-style: none;
+    }
+    
+    li .opcion{
+        padding: 0.5rem 0 0.5rem 0.5rem;
+        text-decoration: none;
+        display: block;
+        color: white;
+        cursor: pointer;
+        &:hover {
+            background-color: white;
+            color: $fondo-menu;
+        }
     }
 }
+    
