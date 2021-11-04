@@ -1,1 +1,37 @@
 <h4 class="mb-3">Lista de Hoteles</h4>
+<div class="card">
+  <div class="card-body">
+    <table class="table table-hover">
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Estrellas</th>
+            <th>Ciudad</th>
+        </tr>
+        <% @lista_hoteles.each do |c| %>
+            <tr>
+                <td>
+                    <%= c.id %>
+                </td>            
+                <td>
+                    <%= c.nombre %>
+                </td>
+                <td>
+                    <%= c.estrellas.to_i.times do |e| %>
+                        ⭐
+                    <% end %>
+                </td>
+                <td>
+                    <%= c.ciudad.nombre %>
+                </td>
+                <td>
+                    <%= link_to "Editar", editar_hotel_path(c), class: "btn btn-warning" %>
+                    <%= link_to "Eliminar", hotel_path(c), class: "btn btn-danger", method: :delete %>
+                </td>
+            </tr>
+        <% end %>
+    </table>
+
+
+  </div>
+</div>

@@ -4,6 +4,15 @@
     </div>
     <div class="container">
         <ul>
+            <li class="separador mb-3 mt-3"><strong>Hoteles</li></strong>
+            <li>
+                <%= link_to hoteles_path, class:" opcion" do %>
+                <i class="bi bi-card-checklist"></i>  Listar
+                <% end %></li>
+            <li >
+                <%= link_to nuevo_hotel_path, class:" opcion" do %>
+                <i class="bi bi-plus-circle"></i>  Crear
+                <% end %></li>
             <li class="separador mb-3 mt-3"><strong>Ciudades</strong></li>
             <li >
                 <%= link_to  ciudades_path, class:"opcion" do %>
@@ -20,15 +29,6 @@
                 <% end %></li>
             <li >
                 <%= link_to nuevo_rol_path, class:" opcion" do %>
-                <i class="bi bi-plus-circle"></i>  Crear
-                <% end %></li>
-            <li class="separador mb-3 mt-3"><strong>Hoteles</li></strong>
-            <li>
-                <%= link_to hoteles_path, class:" opcion" do %>
-                <i class="bi bi-card-checklist"></i>  Listar
-                <% end %></li>
-            <li >
-                <%= link_to nuevo_hotel_path, class:" opcion" do %>
                 <i class="bi bi-plus-circle"></i>  Crear
                 <% end %></li>
         </ul>

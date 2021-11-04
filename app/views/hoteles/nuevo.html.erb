@@ -4,7 +4,7 @@
         <%= formulario.label :nombre, class: "form-label" %>
         <%= formulario.text_field :nombre, class: "form-control" %>
         <% if @hotel.errors[:nombre].any? %>
-            <div>
+            <div class="alert alert-danger">
                 <%= @hotel.errors[:nombre].first %>
             </div>
         <% end %>
@@ -13,7 +13,7 @@
         <%= formulario.label :estrellas, class: "form-label" %>
         <%= formulario.text_field :estrellas, class: "form-control" %>
         <% if @hotel.errors[:estrellas].any? %>
-            <div>
+            <div class="alert alert-danger">
                 <%= @hotel.errors[:estrellas].first %>
             </div>
         <% end %>
@@ -23,6 +23,11 @@
         <%= formulario.select   :ciudad_id,
         options_from_collection_for_select(@ciudades, :id, :nombre, @hotel.ciudad_id),
         { include_blank: "Selecciona la ciudad del Hotel" }, class: "form-control" %>
+        <% if @hotel.errors[:ciuda_id].any? %>
+            <div class="alert alert-danger">
+                <%= @hotel.errors[:ciudad_id].first %>
+            </div>
+        <% end %>
     </div>
     <div class="mb-3">
         <%= link_to 'Cancelar', hoteles_path, class: "btn btn-secondary" %>

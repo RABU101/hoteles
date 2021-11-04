@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get 'hoteles',            to: 'hoteles#listar',     as: 'hoteles'
   get 'hoteles/:id/editar', to: 'hoteles#editar',     as: 'editar_hotel'
   
+  
   post 'hoteles',           to: 'hoteles#guardar'
   patch 'hoteles/:id',      to: 'hoteles#actualizar', as: 'hotel'
   delete 'hoteles/:id',     to: 'hoteles#eliminar'
