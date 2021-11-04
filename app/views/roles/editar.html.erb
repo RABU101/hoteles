@@ -1,12 +1,2 @@
 <h3>Editar Roles</h3>
-<%= form_with(model: @rol) do |formulario| %>
-    <%= formulario.label        :rol,  class: "form-label" %>
-    <%= formulario.text_field   :rol, class: "form-control" %>
-    <% if @rol.errors[:rol].any? %>
-        <div>
-            <%= @rol.errors[:rol].first %>
-        </div>
-    <% end %>
-    <%= link_to "Cancelar", roles_path, class: "btn btn-secondary" %>
-    <%= formulario.submit "Actualizar", class: "btn btn-primary" %>
-<% end %>
+<%= render "formulario", p_rol: @rol %>

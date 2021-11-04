@@ -4,13 +4,14 @@ class HotelesController < ApplicationController
     # Get /hoteles/nuevo
     def nuevo
         @hotel = Hotel.new
-        @ciudades = Ciudad.all        
+        @ciudades = Ciudad.all   
+        @texto = "Crear Hotel"    
     end
 
     # GET /hoteles
     def listar
         @lista_hoteles = Hotel.all
-        @ciudades =Ciudad.all
+        #@ciudades =Ciudad.all
     end
 
     # POST /hoteles
@@ -32,7 +33,8 @@ class HotelesController < ApplicationController
 
     #GET /hoteles/:id/editar
     def editar
-        
+        @ciudades = Ciudad.all
+        @texto = "Actualizar Hotel"
     end
 
     # PATH /hoteles/:id
@@ -57,8 +59,8 @@ class HotelesController < ApplicationController
     # extraer los datos del formulario 📦
     def asignar_hotel
         @hotel = Hotel.find_by(id: params[:id])
-        @ciudades = Ciudad.all
-        puts "ANTES ASIGNAR UN HOTEL".center(50, "🚥")
+        #@ciudades = Ciudad.all
+        #puts "ANTES ASIGNAR UN HOTEL".center(50, "🚥")
     end
 
     def params_hotel

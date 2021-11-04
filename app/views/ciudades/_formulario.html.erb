@@ -1,0 +1,11 @@
+<%= form_with(model: p_ciudad) do |formulario| %>    
+    <%= formulario.label :nombre, class: "form-label" %>
+    <%= formulario.text_field :nombre, class: "form-control" %>
+    <% if p_ciudad.errors[:nombre].any? %>
+        <div>
+            <%= p_ciudad.errors[:nombre].first %>
+        </div>
+    <% end %>
+    <%= link_to 'Cancelar', ciudades_path, class: "btn btn-secondary" %>
+    <%= formulario.submit 'Registrar', class: "btn btn-primary" %>
+<% end %>

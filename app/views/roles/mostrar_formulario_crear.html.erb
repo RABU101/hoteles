@@ -1,12 +1,3 @@
 <h4 class="mb-3">Crear un Rol</h4>
-<%= form_with(model: @rol) do |formulario| %>
-    <%= formulario.label        :rol, class: "form-label" %>
-    <%= formulario.text_field   :rol, class: "form-control" %>
-    <% if @rol.errors[:rol].any? %>
-    <div>
-        <%= @rol.errors[:rol].first %>
-    </div>
-    <% end %>    
-    <%= link_to "Cancelar", roles_path, class: "btn btn-secondary" %>
-    <%= formulario.submit "Registrar", class: "btn btn-primary" %>
-<% end %>
+<%= render "formulario", p_rol: @rol %>
+

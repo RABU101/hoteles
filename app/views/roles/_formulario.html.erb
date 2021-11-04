@@ -1,0 +1,11 @@
+<%= form_with(model: p_rol) do |formulario| %>
+    <%= formulario.label        :rol,  class: "form-label" %>
+    <%= formulario.text_field   :rol, class: "form-control" %>
+    <% if p_rol.errors[:rol].any? %>
+        <div>
+            <%= p_rol.errors[:rol].first %>
+        </div>
+    <% end %>
+    <%= link_to "Cancelar", roles_path, class: "btn btn-secondary" %>
+    <%= formulario.submit "Actualizar", class: "btn btn-primary" %>
+<% end %>

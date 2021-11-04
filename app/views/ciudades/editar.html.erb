@@ -1,13 +1,2 @@
 <h3>Editar Ciudad</h3>
-<%= form_with(model: @ciudad) do |formulario| %>
-    <%= formulario.label        :nombre, class: "form-label" %>
-    <%= formulario.text_field   :nombre, class: "form-control" %>
-    <% if @ciudad.errors[:nombre].any? %>
-        <div>
-            <%= @ciudad.errors[:nombre].first %>
-        </div>
-    <% end %>
-
-    <%= link_to 'Cancelar', ciudades_path, class: "btn btn-secondary" %>
-    <%= formulario.submit "Actualizar", class: "btn btn-primary" %>
-<% end %>
+<%= render "formulario", p_ciudad: @ciudad %>

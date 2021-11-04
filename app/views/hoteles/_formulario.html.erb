@@ -1,6 +1,7 @@
 <!-- Los parciales debiesen ser autonomos/independientes
     No deberíamos tener variables que comiencen  con @
-    Variables: @hotel, @ciudades
+    Variables antiguas: @hotel, @ciudades
+    Variables nuevas parciales: p_hotel, p_ciudades
 -->
 <%= form_with(model: p_hotel) do |formulario| %>
     <div class="mb-3">
@@ -15,9 +16,9 @@
     <div class="mb-3">
         <%= formulario.label :estrellas, class: "form-label" %>
         <%= formulario.text_field :estrellas, class: "form-control" %>
-        <% if p_otel.errors[:estrellas].any? %>
+        <% if p_hotel.errors[:estrellas].any? %>
             <div class="alert alert-danger">
-                <%= p_otel.errors[:estrellas].first %>
+                <%= p_hotel.errors[:estrellas].first %>
             </div>
         <% end %>
     </div>
@@ -28,5 +29,5 @@
         { include_blank: "Selecciona la ciudad del Hotel" }, class: "form-control" %>
     </div>
     <%= link_to 'Cancelar', hoteles_path, class: "btn btn-secondary" %>
-    <%= formulario.submit "Actualizar", class: "btn btn-primary" %>
+    <%= formulario.submit p_texto_boton, class: "btn btn-primary" %>
 <% end %>
