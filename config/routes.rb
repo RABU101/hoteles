@@ -16,4 +16,7 @@ Rails.application.routes.draw do
   post    'ciudades',       to: 'ciudades#guardar'
   patch   'ciudades/:id',   to: 'ciudades#actualizar', as: 'ciudad'
   delete  'ciudades/:id',   to: 'ciudades#eliminar'
+
+  # Hoteles
+  get 'hoteles/nuevo', to: 'hoteles#nuevo', as: 'nuevo_hotel'
 end

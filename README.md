@@ -438,7 +438,7 @@ Cosas deseables del software serían las siguientes:
           end
           ```
     - [x] Limpiar controlador de ciudades
-      - [x] Entender qué son son filtros
+      - [x] Entender qué son los filtros
         ```ruby
         # app/controllers/ciudades_controller.rb
         class CiudadesController < ApplicationController
@@ -596,7 +596,51 @@ Cosas deseables del software serían las siguientes:
             end
         end
         ```
-   1.2. Formulario que me permita introducir los datos del hotel con 1 ciudad registrada en la BD
+   1.2. Configuración de Bootstrap con yarn
+    - [x] Instalar yarn
+        ```bash
+        # Nos funcionó con gitbash
+        npm -v
+        npm install -g yarn
+        yarn -v
+        ```
+    - [x] Agregar los paquetes de bootstrap
+        ```bash
+        yarn add bootstrap
+        ```
+    - [x] Agregar los paquetes de popperjs
+        ```bash
+        yarn add @popperjs/core
+        ```
+    - [x] Crear el directorio *css* en la carpeta *app/ javascript*
+    - [x] Crear el archivo de inicio *main.scss*
+    - [x] Importar a *app/javascript/application.js* el paquete de bootstrap
+        ```javascript
+        // app/javascript/packs/application.js
+        // This file is automatically compiled by Webpack, along with any other files
+        // present in this directory. You're encouraged to place your actual application logic in
+        // a relevant structure within app/javascript and only use these pack files to reference
+        // that code so it'll be compiled.
+        import Rails from "@rails/ujs"
+        import Turbolinks from "turbolinks"
+        import * as ActiveStorage from "@rails/activestorage"
+        import "channels"
+        // Configurado JS de bootstrap
+        import 'bootstrap'  
+        // Configura CSS de bootstrap
+        import 'css/main'   
+        Rails.start()
+        Turbolinks.start()
+        ActiveStorage.start()
+        ```
+        ```scss
+        // app/javascript/css/main.scss
+        @import '~bootstrap/scss/bootstrap';
+        ```
+   1.3. Crear un parcial para el menú lateral
+    - [x] Crear un archivo que comienza con *_menu_vertical.html.erb*. RECORDAR: debe comenzar con _
+    - [x] Llamar el parcial en la vista que quiera
+   1.4. Formulario que me permita introducir los datos del hotel con 1 ciudad registrada en la BD
       - [ ] Consultar todas las ciudades de la BD
       - [ ] Diseñar el formulario para el registro de hotel (¿qué componentes necesitamos?)
       - [ ] Implementar la lógica que me permita guardar los datos del hotel con una ciudad
