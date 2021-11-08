@@ -14,7 +14,7 @@ Cosas deseables del software serían las siguientes:
 
 ## Funcionalidades
 
-1. Registrar Hoteles
+1. Registrar Hoteles (CRUD) ✅
 
    1.1. ✅ Registrar al menos una ciudad (CRUD Completo de ciudades)
 
@@ -640,14 +640,173 @@ Cosas deseables del software serían las siguientes:
    1.3. Crear un parcial para el menú lateral
     - [x] Crear un archivo que comienza con *_menu_vertical.html.erb*. RECORDAR: debe comenzar con _
     - [x] Llamar el parcial en la vista que quiera
-   1.4. Formulario que me permita introducir los datos del hotel con 1 ciudad registrada en la BD
-      - [ ] Consultar todas las ciudades de la BD
-      - [ ] Diseñar el formulario para el registro de hotel (¿qué componentes necesitamos?)
-      - [ ] Implementar la lógica que me permita guardar los datos del hotel con una ciudad
-2. Registrar Habitaciones
+   1.4. CRUD Hoteles
+    1.4.1. Crear un Hotel con un ciudad
+      - [x] La ruta para mostrar el formulario
+      - [x] El controlador con el método
+      - [x] La vista para mostrar el formulario
+      - [x] Crear un hotel por consola para aprender cómo funciona
+        ```ruby
+        # Primera forma de registrar por referencia
+        ciudad = Ciudad.find_by(id: 29) # me trae la ciudad con id 29
+        hotel = Hotel.new
+        hotel.nombre = "Las colinas"
+        hotel.estrellas = 5
+        hotel.ciudad = ciudad
+        hotel.save
+        # Segunda forma de registrar por el ID de la ciudad
+        hotel = Hotel.new
+        hotel.nombre = "Los balcones"
+        hotel.estrellas = 2
+        hotel.ciudad_id = 35 # id de la ciudad
+        hotel.save
+        ```
+      - [x] Consultar todas las ciudades de la BD
+        ```ruby
+        # app/controllers/hoteles_controller.rb
+        # GET /hoteles/nuevo
+        def nuevo
+            @hotel = Hotel.new
+            @ciudades = Ciudad.all
+        end
+        ```
+      - [x] Diseñar el formulario para el registro de hotel (¿qué componentes necesitamos?)
+        ```htm
+        <!-- app/views/hoteles/nuevo.html.erb -->
+        <h1>FORMULARIO para el hotel</h1>
+        <%= form_with(model: @hotel) do |formulario| %>
+            <div class="mb-3">
+                <%= formulario.label        :nombre, class: 'form-label' %>
+                <%= formulario.text_field   :nombre, class: 'form-control' %>
+                <% if @hotel.errors[:nombre].any? %>
+                    <div>
+                        <%= @hotel.errors[:nombre].first %>
+                    </div>
+                <% end %>
+            </div>
+            <div class="mb-3">
+                <%= formulario.label        :estrellas, class: 'form-label' %> 
+                <%= formulario.number_field :estrellas, class: 'form-control' %>
+                <% if @hotel.errors[:estrellas].any? %>
+                    <div>
+                        <%= @hotel.errors[:estrellas].first %>
+                    </div>
+                <% end %>
+            </div>
+            <div class="mb-3">
+                <%= formulario.label    :ciudad_id %>
+                <%= formulario.select   :ciudad_id,
+                    options_from_collection_for_select(@ciudades, :id, :nombre, @hotel.ciudad_id),
+                    { include_blank: "Selecciona la ciudad del hotel" },
+                    class: 'form-select' %>
+                <% if @hotel.errors[:ciudad_id].any? %>
+                    <div>
+                        <%= @hotel.errors[:ciudad_id].first %>
+                    </div>
+                <% end %>
+            </div>
+            <%= formulario.submit "Crear" %>
+        <% end %>
+        ```
+
+      - [x] Implementar la lógica que me permita guardar los datos del hotel con una ciudad
+
+        ```ruby
+        # app/controllers/hoteles_controller.rb
+        # POST /hoteles
+        def guardar
+            @hotel = Hotel.new(params_hotel)
+            if @hotel.save
+                # redirect_to hoteles_path # listar hoteles
+            else
+                @ciudades = Ciudad.all
+                render :nuevo
+            end
+        end
+        private
+        def params_hotel
+            return params.require(:hotel).permit(:nombre, :estrellas, :ciudad_id)
+        end
+        ```
+
+    1.4.2. Listar los hoteles registrados
+
+      - [x] Definir la ruta
+      - [x] Tener el método que se hará cargo
+      - [x] La vista
+      - [x] Agregar al menu de navegación
+      - [x] Agregar la lógica para mostrar hoteles en la vista
+
+    1.4.3. Actualizar los hoteles registrados
+
+      - [x] Definir la ruta
+      - [x] Definir el método *editar* que se hará cargo
+      - [x] Crear la vista
+      - [x] Convertir a botón el texto Editar en *listar.html.erb*
+      - [x] Agregar la lógica para actualizar el hotel
+
+    1.4.4. Eliminar un hotel registrado
+
+      - [x] Definir la ruta
+      - [x] Agregar el botón
+      - [x] Agregar la pregunta
+      - [x] Agregar la lógica para eliminar un hotel
+
+    CALLBACKS
+
+      - [x] Experimentar para ver cómo se comportan los callbacks
+      - [x] Implementar un callback que normalice los nombres de los registros
+
+    RESCUE
+
+      - [x] Capturar errores en los métodos utilizando rescue
+
+2. Registrar Habitaciones ✅
+
+    2.1. Crear habitaciones ✅
+    2.2. Consultar/Listar habitaciones ✅
+    2.3. Actualizar habitaciones
+    2.4. Eliminar ✅
+
 3. Buscar hoteles (por nombre) 🔁
+
+    3.1. Diseñar un wireframe
+
+     - [x] Encontrar una referencia
+     - [x] Diseñar un wireframe
+
+    3.2. Configurar las rutas
+
+     - [x] Definir una ruta para la vista principal
+
+        ```ruby
+        # config/routes.rb
+        # Principal
+        root 'paginas#principal'
+        ```
+
+    3.3. Definir el controlador que se hará cargo de la vista
+
+     - [x] Crear el archivo `paginas_controller.rb`
+     - [x] Definir el método `principal`
+     - [x] Crear el archivo en `app/views/paginas/principal.html.erb`
+
+        3.3.1. Crear un layout específico para los clientes
+
+          - [x] Crear el archivo en la carpeta de *app/views/layouts/layout_cliente.html.erb*
+          - [x] Definir en el controlador el layout a utilizar
+          - [x] Definir la estructura HTML del nuevo layout
+
+    3.4. Definir el método que se hará cargo de la lógica
+
+     - [x] En la vista colocar un *input* para escribir el nombre de ciudad/hotel
+     - [x] Analizar la lógica para mostrar el resultado
+     - [ ] Definir las tarjetas donde se mostrará el resultado
+
 4. Reservar una habitación
+
 ### Opcionales
+
 1. Iniciar sesión
 2. Tener vistas de administrador
 3. Buscador de hoteles por nombre en la página principal 🔁
