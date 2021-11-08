@@ -26,4 +26,16 @@ Rails.application.routes.draw do
   post 'hoteles',           to: 'hoteles#guardar'
   patch 'hoteles/:id',      to: 'hoteles#actualizar', as: 'hotel'
   delete 'hoteles/:id',     to: 'hoteles#eliminar'
+
+  #habitaciones
+  get 'habitaciones',             to: 'habitaciones#listar',    as: 'habitaciones'
+  get 'habitaciones/nueva',       to: 'habitaciones#nuevo',     as: 'nueva_habitacion'
+  get 'habitaciones/:id',         to: 'habitaciones#mostrar',   as: 'habitacion'
+  get 'habitaciones/:id/editar',  to: 'habitaciones#editar',    as: 'editar_habitacion'
+
+  post 'habitaciones',            to: 'habitaciones#guardar'
+  put   'habitaciones/:id',       to: 'habitaciones#actualziar' #hace lo mismo que patch
+  patch 'habitaciones/:id',       to: 'habitaciones#actualziar'
+  delete 'habitaciones/:id',      to: 'habitaciones#editar'
+
 end
