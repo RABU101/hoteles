@@ -7,6 +7,7 @@
             <th>Nombre</th>
             <th>Estrellas</th>
             <th>Ciudad</th>
+            <th class="text-center">Acciones</th>
         </tr>
         <% @lista_hoteles.each do |c| %>
             <tr>
@@ -16,17 +17,19 @@
                 <td>
                     <%= c.nombre %>
                 </td>
-                <td>
-                    <%= c.estrellas.to_i.times do |e| %>
+                <td class="">
+                    <% c.estrellas.to_i.times do |e| %>
                         ⭐
                     <% end %>
                 </td>
                 <td>
                     <%= c.ciudad.nombre %>
                 </td>
-                <td>
+                <td class="text-center">
                     <%= link_to "Editar", editar_hotel_path(c), class: "btn btn-warning" %>
-                    <%= link_to "Eliminar", hotel_path(c), class: "btn btn-danger", method: :delete %>
+                    <%= link_to "Eliminar", hotel_path(c), class: "btn btn-danger", 
+                        method: :delete, 
+                        data: {confirm: "¿Está seguro de desea eliminar el Hotel"}%>
                 </td>
             </tr>
         <% end %>

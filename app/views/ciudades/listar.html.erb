@@ -5,7 +5,7 @@
         <tr>
             <th>Id</th>
             <th>Nombre</th>
-            <th>Acciones</th>
+            <th class="text-center">Acciones</th>
         </tr>
         <% @lista_ciudades.each do |c| %>
             <tr>
@@ -15,9 +15,11 @@
                 <td>
                     <%= c.nombre %>
                 </td>
-                <td>
+                <td class="text-center">
                     <%= link_to "Editar", editar_ciudad_path(c), class: "btn btn-warning" %> <!-- /ciudades/4/editar -->
-                    <%= link_to "Eliminar", ciudad_path(c), class: "btn btn-danger", method: :delete %>
+                    <%= link_to "Eliminar", ciudad_path(c), class: "btn btn-danger", 
+                    method: :delete, 
+                    data: {confirm: "Está seguro que quiere eliminar la Ciudad"} %>
                 </td>
             </tr>
         <% end %>

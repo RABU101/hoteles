@@ -5,8 +5,8 @@
 -->
 <%= form_with(model: p_hotel) do |formulario| %>
     <div class="mb-3">
-        <%= formulario.label :nombre, class: "form-label" %>
-        <%= formulario.text_field :nombre, class: "form-control" %>
+        <%= formulario.label        :nombre, class: "form-label" %>
+        <%= formulario.text_field   :nombre, class: "form-control" %>
         <% if p_hotel.errors[:nombre].any? %>
             <div class="alert alert-danger">
                 <%= p_hotel.errors[:nombre].first %>
@@ -14,8 +14,8 @@
         <% end %>
     </div>
     <div class="mb-3">
-        <%= formulario.label :estrellas, class: "form-label" %>
-        <%= formulario.text_field :estrellas, class: "form-control" %>
+        <%= formulario.label        :estrellas, class: "form-label" %>
+        <%= formulario.text_field   :estrellas, class: "form-control" %>
         <% if p_hotel.errors[:estrellas].any? %>
             <div class="alert alert-danger">
                 <%= p_hotel.errors[:estrellas].first %>
@@ -27,6 +27,11 @@
         <%= formulario.select   :ciudad_id,
         options_from_collection_for_select(p_ciudades, :id, :nombre, p_hotel.ciudad_id),
         { include_blank: "Selecciona la ciudad del Hotel" }, class: "form-control" %>
+        <% if p_hotel.errors[:ciudad_id].any? %>
+            <div class="alert alert-danger" role="alert">
+                <%= p_hotel.errors[:ciudad_id].first %>
+            </div>
+        <% end %>
     </div>
     <%= link_to 'Cancelar', hoteles_path, class: "btn btn-secondary" %>
     <%= formulario.submit p_texto_boton, class: "btn btn-primary" %>

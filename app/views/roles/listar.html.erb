@@ -5,15 +5,18 @@
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
-                <th>Acciones</th>
+                <th class="text-center">Acciones</th>
             </tr>
             <% @roles.each do |rol| %>
             <tr>
                 <td><%= rol.id %></td>
                 <td><%= rol.rol %></td>
-                <td>
+                <td class="text-center">
                     <%= link_to "Editar", editar_rol_path(rol), class: "btn btn-warning" %> 
-                    <%= link_to "Eliminar", rol_path(rol), method: :delete, class: "btn btn-danger" %>
+                    <%= link_to "Eliminar", rol_path(rol), 
+                    method: :delete, 
+                    class: "btn btn-danger", 
+                    data: {confirm: "Está seguro que quiere eliminar el Rol"} %>
                 
                 </td>
             </tr>

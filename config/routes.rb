@@ -1,29 +1,36 @@
 Rails.application.routes.draw do
   # Roles
-  get 'roles',              to: 'roles#listar',   as: 'roles'
-  get 'roles/nuevo',        to: 'roles#mostrar_formulario_crear',    as: 'nuevo_rol'
-  get 'roles/:id/editar',  to: 'roles#editar',    as: 'editar_rol' 
-  
-  post    'roles',       to: 'roles#guardar'
-  patch   'roles/:id',   to: 'roles#actualizar', as: 'rol'
-  delete  'roles/:id',   to: 'roles#eliminar'
+  get     'roles',                 to: 'roles#listar',                     as: 'roles'
+  get     'roles/nuevo',           to: 'roles#mostrar_formulario_crear',   as: 'nuevo_rol'
+  get     'roles/:id/editar',      to: 'roles#editar',                     as: 'editar_rol' 
+  post    'roles',                 to: 'roles#guardar'
+  patch   'roles/:id',             to: 'roles#actualizar',                 as: 'rol'
+  delete  'roles/:id',             to: 'roles#eliminar'
 
   # Ciudades
-  get   'ciudades',             to: 'ciudades#listar'                  ,  as: 'ciudades'
-  get   'ciudades/nuevo',       to: 'ciudades#mostrar_formulario_crear',  as: 'nueva_ciudad'
-  get   'ciudades/:id/editar',  to: 'ciudades#editar',                    as: 'editar_ciudad'
-
-  post    'ciudades',       to: 'ciudades#guardar'
-  patch   'ciudades/:id',   to: 'ciudades#actualizar', as: 'ciudad'
-  delete  'ciudades/:id',   to: 'ciudades#eliminar'
+  get     'ciudades',            to: 'ciudades#listar'                  ,  as: 'ciudades'
+  get     'ciudades/nuevo',      to: 'ciudades#mostrar_formulario_crear',  as: 'nueva_ciudad'
+  get     'ciudades/:id/editar', to: 'ciudades#editar',                    as: 'editar_ciudad'
+  post    'ciudades',            to: 'ciudades#guardar'
+  patch   'ciudades/:id',        to: 'ciudades#actualizar',                as: 'ciudad'
+  delete  'ciudades/:id',        to: 'ciudades#eliminar'
 
   # Hoteles
-  get 'hoteles/nuevo',      to: 'hoteles#nuevo',      as: 'nuevo_hotel'
-  get 'hoteles',            to: 'hoteles#listar',     as: 'hoteles'
-  get 'hoteles/:id/editar', to: 'hoteles#editar',     as: 'editar_hotel'
-  
-  
-  post 'hoteles',           to: 'hoteles#guardar'
-  patch 'hoteles/:id',      to: 'hoteles#actualizar', as: 'hotel'
-  delete 'hoteles/:id',     to: 'hoteles#eliminar'
+  get     'hoteles/nuevo',         to: 'hoteles#nuevo',                      as: 'nuevo_hotel'
+  get     'hoteles',               to: 'hoteles#listar',                     as: 'hoteles'
+  get     'hoteles/:id/editar',    to: 'hoteles#editar',                     as: 'editar_hotel'
+  post    'hoteles',               to: 'hoteles#guardar'
+  patch   'hoteles/:id',           to: 'hoteles#actualizar',                 as: 'hotel'
+  delete  'hoteles/:id',           to: 'hoteles#eliminar'
+
+  #habitaciones
+  get     'habitaciones',             to: 'habitaciones#listar',             as: 'habitaciones'
+  get     'habitaciones/nueva',       to: 'habitaciones#nuevo',              as: 'nueva_habitacion'
+  get     'habitaciones/:id',         to: 'habitaciones#mostrar',            as: 'habitacion'
+  get     'habitaciones/:id/editar',  to: 'habitaciones#editar',             as: 'editar_habitacion'
+  post    'habitaciones',             to: 'habitaciones#guardar'
+  #put    'habitaciones/:id',       to: 'habitaciones#actualziar' #hace lo mismo que patch
+  patch   'habitaciones/:id',         to: 'habitaciones#actualziar'
+  delete  'habitaciones/:id',         to: 'habitaciones#editar'
+
 end
