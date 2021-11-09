@@ -64,5 +64,4 @@ class HabitacionesController < ApplicationController
     def asignar_habitacion
         @habitacion = Habitacion.find_by(id: params[:id])
     end
-
 end
