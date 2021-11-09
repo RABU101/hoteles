@@ -19,10 +19,11 @@
                 <td> <%= h.esta_reservada %> </td>
                 <td> <%= h.hotel.nombre %> </td>
                 <td class="text-center"> 
-                    <%= link_to "Editar", editar_habitacion_path(h), class: 'btn btn-warning' %> 
+
                     <%= link_to "Eliminar", habitacion_path(h), class: 'btn btn-danger', 
                     method: :delete, 
                     data: {confirm: "¿Está seguro que quiere eliminar la Habitación? "} %> 
+
                 </td>
             </tr>
             <% end %>

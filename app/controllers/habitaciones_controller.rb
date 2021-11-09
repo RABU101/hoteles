@@ -1,4 +1,5 @@
 class HabitacionesController < ApplicationController
+
     before_action :asignar_habitacion, only: [:mostrar, :editar, :actualizar, :eliminar]
     
     # GET /habitaciones
@@ -64,4 +65,5 @@ class HabitacionesController < ApplicationController
     def asignar_habitacion
         @habitacion = Habitacion.find_by(id: params[:id])
     end
+
 end
