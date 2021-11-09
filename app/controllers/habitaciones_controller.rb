@@ -1,5 +1,4 @@
 class HabitacionesController < ApplicationController
-
     before_action :asignar_habitacion, only: [:mostrar, :editar, :actualizar, :eliminar]
     
     # GET /habitaciones
