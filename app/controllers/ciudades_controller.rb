@@ -10,10 +10,12 @@ class CiudadesController < ApplicationController
     # GET /ciudades/nuevo
     def mostrar_formulario_crear
         @ciudad = Ciudad.new
+        @texto = "Crear Ciudad"
     end
 
     # GET /ciudades/:id/editar
     def editar
+        @texto = "Actualizar Ciudad"
     end
 
     # POST /ciudades

@@ -1,6 +1,4 @@
 class Reserva < ApplicationRecord
-    belongs_to :habitacion
-    belongs_to :usuario
-  end
-
-  #belong_to: tiene uno
+  belongs_to :usuario     # una reserva le pertenece a un usuario
+  belongs_to :habitacion  # una reserva le pertenece a una habitación
+end

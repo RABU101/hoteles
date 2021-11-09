@@ -1,11 +1,15 @@
 class Hotel < ApplicationRecord
-    belongs_to  :ciudad 
-    has_many    :habitaciones
+  has_many :habitaciones  # un hotel tiene muchas habitaciones
+  belongs_to :ciudad      # un hotel le pertenece a una ciudad
 
-    validates :nombre,    presence: true
-    validates :estrellas, presence: true
-    validates :ciudad_id, presence: true
+  before_validation :capitalizar_nombre
+
+  validates :nombre,      presence: true
+  validates :estrellas,   presence: true
+  validates :ciudad_id,   presence: true
+
+  private
+  def capitalizar_nombre
+      self.nombre = self.nombre.split(" ").map(&:capitalize).join(" ")
   end
-
-  #belong_to: tiene uno
-  #has_many: tiene muchos
+end

@@ -44,6 +44,8 @@
             </div>
         <% end %>
     </div>
-    <%= link_to 'Cancelar', habitaciones_path, class: "btn btn-secondary" %>
-    <%= formulario.submit p_texto_boton, class: "btn btn-primary" %>
+    <div  class="mb-3 text-end">
+        <%= link_to 'Cancelar', habitaciones_path, class: "btn btn-secondary" %>
+        <%= formulario.submit p_texto_boton, class: "btn btn-primary" %>
+    </div>
 <% end %>

@@ -11,9 +11,11 @@ class RolesController < ApplicationController
         #mostrar formulario para guardar roles nuevos
         #@mi_nombre = "Rodrigo Bravo Urzúa"
         @rol = Rol.new
+        @texto = "Crear Rol"
     end
     # GET /roles/:id/editar
     def editar
+        @texto = "Actualizar Rol"
     end
     # POST /roles
     def guardar
