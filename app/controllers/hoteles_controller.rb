@@ -54,6 +54,9 @@ class HotelesController < ApplicationController
     def eliminar
         @hotel.destroy
         redirect_to hoteles_path
+    rescue
+        flash[:error_hotel] = "No se puede eliminar el hotel #{@hotel.nombre}, porque tiene habitaciones registradas"
+        redirect_to hoteles_path        
     end
     private # Todo lo que está abajo 👇👇 es PRIVADO
     # extraer los datos del formulario 📦

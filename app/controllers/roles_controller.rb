@@ -1,4 +1,3 @@
-# Reciben peticiones y devuelven vistas
 class RolesController < ApplicationController
     before_action :asignar_rol, only: [:editar, :actualizar, :eliminar]
 
@@ -7,7 +6,7 @@ class RolesController < ApplicationController
         @roles = Rol.all
     end
     # GET /roles/nuevo
-    def mostrar_formulario_crear
+    def nuevo
         #mostrar formulario para guardar roles nuevos
         #@mi_nombre = "Rodrigo Bravo Urzúa"
         @rol = Rol.new
