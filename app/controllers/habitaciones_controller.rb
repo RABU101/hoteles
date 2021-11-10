@@ -8,7 +8,7 @@ class HabitacionesController < ApplicationController
     end
 
     # GET /habitaciones/nueva
-    def nuevo
+    def nueva
         @habitacion = Habitacion.new
         @hoteles = Hotel.all
         @texto_boton = "Registrar habitación"
@@ -32,7 +32,7 @@ class HabitacionesController < ApplicationController
         else
             @hoteles = Hotel.all
             @texto_boton = "Registrar habitación"
-            render :nuevo
+            render :nueva
         end
     end
 
