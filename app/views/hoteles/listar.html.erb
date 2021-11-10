@@ -7,6 +7,7 @@
             <th>Nombre</th>
             <th>Estrellas</th>
             <th>Ciudad</th>
+            <th class="text-center">Habitaciones</th>
             <th class="text-center">Acciones</th>
         </tr>
         <% @lista_hoteles.each do |c| %>
@@ -24,6 +25,9 @@
                 </td>
                 <td>
                     <%= c.ciudad.nombre %>
+                </td>
+                <td class="text-center">
+                    <%=  c.habitaciones.count %>
                 </td>
                 <td class="text-center">
                     <%= link_to "Editar", editar_hotel_path(c), class: "btn btn-warning" %>

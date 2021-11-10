@@ -7,8 +7,13 @@
         ⭐
         <% end %>
     </div>
-    <p>
-        Habitaciones: <%= @hotel_encontrado.habitaciones.count %>
-    </p>
+    <h4>Habitaciones: <%= @hotel_encontrado.habitaciones.count %></h4>
+    <div class="row">
+        <% @hotel_encontrado.habitaciones.each do |h| %>
+            <%= link_to reservas_path(h), class: 'col text-decoration-none p-3' do %>
+                <%= render "tarjeta", p_titulo: h.nombre, p_subtitulo: h.precio %>
+            <% end %>
+        <% end %>
+    </div>
     
 </div>
