@@ -11,12 +11,12 @@ Rails.application.routes.draw do
   get     'ciudades',            to: 'ciudades#listar'                  ,  as: 'ciudades'
   get     'ciudades/nuevo',      to: 'ciudades#mostrar_formulario_crear',  as: 'nueva_ciudad'
   get     'ciudades/:id/editar', to: 'ciudades#editar',                    as: 'editar_ciudad'
+  get     'ciudades/id',         to: 'ciudades#mostrar',                   as: 'ciudad'
   post    'ciudades',            to: 'ciudades#guardar'
-  patch   'ciudades/:id',        to: 'ciudades#actualizar',                as: 'ciudad'
+  patch   'ciudades/:id',        to: 'ciudades#actualizar'
   delete  'ciudades/:id',        to: 'ciudades#eliminar'
 
   # Hoteles
-
   get     'hoteles/nuevo',         to: 'hoteles#nuevo',                      as: 'nuevo_hotel'
   get     'hoteles',               to: 'hoteles#listar',                     as: 'hoteles'
   get     'hoteles/:id/editar',    to: 'hoteles#editar',                     as: 'editar_hotel'

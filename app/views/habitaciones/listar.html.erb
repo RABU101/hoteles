@@ -15,7 +15,12 @@
                 <td> <%= h.id %> </td>
                 <td> <%= h.nombre %> </td>
                 <td> <%= h.precio %> </td>
-                <td class="text-center"> <%= h.esta_reservada %> </td>
+                <td class="text-center"> 
+                <%= if h.esta_reservada == true 
+                        "Reservada" 
+                    else
+                        "Disponible"
+                    end %> </td>
                 <td> <%= h.hotel.nombre %> </td>
                 <td class="text-center"> 
                     <%= link_to "Editar", editar_habitacion_path(h), class: "btn btn-warning" %>

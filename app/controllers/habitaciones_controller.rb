@@ -15,7 +15,7 @@ class HabitacionesController < ApplicationController
     end
 
     # GET /habitaciones/:id
-    def mostrar
+    def mostrar        
     end
 
     # GET /habitaciones/:id/editar
