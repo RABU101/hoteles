@@ -45,9 +45,12 @@ class RolesController < ApplicationController
     def eliminar
         @rol.destroy
         redirect_to roles_path
+    rescue
+        flash[:error_rol] = "No se puede eliminar el Rol porque hay Usuarios registrados en #{@usuario.nombre}"
+        redirect_to ciudades_path        
+
     end
     private # Todo lo que está abajo 👇👇 es PRIVADO
-    
     # recuperamos el :id de la URL 📦 y lo buscamos en la base de datos
     def asignar_rol
         @rol = Rol.find_by(id: params[:id])

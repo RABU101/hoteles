@@ -45,11 +45,14 @@ class CiudadesController < ApplicationController
     def eliminar
         @ciudad.destroy
         redirect_to ciudades_path
-    #
-    #rescue
-    #    flash[:error_ciudad] = "No se puede eliminar la ciudad porque hay hoteles registrados en #{@ciudad.nombre}"
-    #    redirect_to ciudades_path        
-    #
+        # rescata el código del error especifficado
+        #rescue ActiveRecord::InvalidForeignKey
+        #puts "recata error"
+    #rescue, rescata todos los errores posibles para manipularlos
+    rescue
+        #puts "recata error"
+        flash[:error_ciudad] = "No se puede eliminar la ciudad porque hay Hoteles registrados en #{@ciudad.nombre}"
+        redirect_to ciudades_path            
     end
 
     private # Todo lo que está abajo 👇👇 es PRIVADO
