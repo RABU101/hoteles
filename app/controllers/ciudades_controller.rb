@@ -13,8 +13,9 @@ class CiudadesController < ApplicationController
         @texto = "Crear Ciudad"
     end
 
-    # GET /ciudad/id
+    # GET /ciudad/:id
     def mostrar
+       #@hoteles = Hoteles.find_by()
     end
 
     # GET /ciudades/:id/editar

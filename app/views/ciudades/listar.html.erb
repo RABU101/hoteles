@@ -10,15 +10,19 @@
         <tr>
             <th>Id</th>
             <th>Nombre</th>
+            <th class="text-center">Hoteles</th>
             <th class="text-center">Acciones</th>
         </tr>
         <% @lista_ciudades.each do |c| %>
             <tr>
-                <td>
-                    <%= c.id %>
-                </td>            
-                <td>
-                    <%= c.nombre %>
+                <td><%= c.id %></td>            
+                <td><%= c.nombre %></td>
+                <td class="text-center">
+                <% if c.hoteles.any? %>
+                    <%= link_to c.hoteles.count, ciudad_path(c) %>
+                <% else %>
+                    <%= link_to "Registrar Hotel", nuevo_hotel_con_ciudad_path(c), class: 'btn btn-primary text-white'%>
+                <% end %>                
                 </td>
                 <td class="text-center">
                     <%= link_to "Editar", editar_ciudad_path(c), class: "btn btn-warning" %> <!-- /ciudades/4/editar -->

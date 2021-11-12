@@ -11,7 +11,12 @@ class HabitacionesController < ApplicationController
     def nueva
         @habitacion = Habitacion.new
         @hoteles = Hotel.all
-        @texto_boton = "Registrar habitación"
+        if params[:id_hotel]
+            @habitacion.hotel_id = params[:id_hotel]
+            #if params[:parent_hotel_id]
+            #    redirect_to mostrar_hotel(params[:parent_hotel_id])
+            #end
+        end
     end
 
     # GET /habitaciones/:id

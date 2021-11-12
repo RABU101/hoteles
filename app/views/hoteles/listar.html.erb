@@ -1,4 +1,9 @@
 <h4 class="mb-3">Lista de Hoteles</h4>
+<% if flash[:error_hotel] %>
+    <div class="alert alert-warning" role="alert">
+        <%= flash[:error_hotel] %>
+    </div>
+<% end %>
 <div class="card">
   <div class="card-body">
     <table class="table table-hover">
@@ -27,7 +32,11 @@
                     <%= c.ciudad.nombre %>
                 </td>
                 <td class="text-center">
-                    <%=  c.habitaciones.count %>
+                    <% if c.habitaciones.any? %>
+                        <%=  link_to c.habitaciones.count, mostrar_hotel_path(c) %>
+                    <% else %>
+                    <%= link_to "Registrar Habitación", nueva_habitacion_con_hotel_path(c), class: 'btn btn-primary text-white'%>
+                    <% end %>
                 </td>
                 <td class="text-center">
                     <%= link_to "Editar", editar_hotel_path(c), class: "btn btn-warning" %>
