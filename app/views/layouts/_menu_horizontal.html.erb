@@ -6,10 +6,10 @@
             </div>
             <div class="col text-center">          
                 <%= form_with(url: "/", method: "get", class: 'row') do |formulario| %>          
-                    <div class="col text-center mb-1">
+                    <div class="col-10 text-center mb-1">
                         <%= formulario.text_field :busqueda, class: 'form-control', placeholder: "Buscar: hotel o ciudad" %>
                     </div>
-                    <div class="col text-center mb-1"> 
+                    <div class="col-2 text-center mb-1"> 
                         <%= formulario.submit "Buscar", class: 'btn btn-secondary text-white' %>
                     </div>                
                 <% end %>
