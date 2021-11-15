@@ -72,8 +72,6 @@ class HotelesController < ApplicationController
     # extraer los datos del formulario 📦
     def asignar_hotel
         @hotel = Hotel.find_by(id: params[:id])
-        #@ciudades = Ciudad.all
-        #puts "ANTES ASIGNAR UN HOTEL".center(50, "🚥")
     end
 
     def params_hotel

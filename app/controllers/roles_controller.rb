@@ -34,6 +34,7 @@ class RolesController < ApplicationController
     # PATH /roles/:id
     def actualizar
         @rol.rol = params_rol[:rol]
+        puts ">>>>actualizar rol<<<<"
         if @rol.save
             redirect_to roles_path
         else

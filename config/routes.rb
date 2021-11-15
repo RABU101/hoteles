@@ -42,13 +42,10 @@ Rails.application.routes.draw do
     # Habitaciones
     get     'habitaciones',                 to: 'habitaciones#listar',  as: 'habitaciones'
     get     'habitaciones/nueva',           to: 'habitaciones#nueva',   as: 'nueva_habitacion'
-    get     'habitaciones/:id',             to: 'habitaciones#mostrar', as: 'habitacion' # Mostrar la info de 1 habitación
+    get     'habitaciones/:id',             to: 'habitaciones#mostrar', as: 'habitacion'            # Mostrar la info de 1 habitación
     get     'habitaciones/:id/editar',      to: 'habitaciones#editar',  as: 'editar_habitacion'
     get     'habitaciones/nueva/:id_hotel', to: 'habitaciones#nueva',   as: 'nueva_habitacion_con_hotel'
-    
-  
     post    'habitaciones',                 to: 'habitaciones#guardar'
-    put     'habitaciones/:id',             to: 'habitaciones#editar' # Hace lo mismo que el PATCH 
-    patch   'habitaciones/:id',             to: 'habitaciones#editar' 
+    patch   'habitaciones/:id',             to: 'habitaciones#actualizar'
     delete  'habitaciones/:id',             to: 'habitaciones#eliminar'
 end
