@@ -2,7 +2,6 @@ Rails.application.routes.draw do
     # Principal
     root  'paginas#principal'
     get   'paginas/:id_hotel',              to: 'paginas#info_hotel',                as: 'info_hotel'
-    get   'registro',                       to: 'paginas#registro',                  as: 'registro'
 
     # Registros de Usuarios
     get   'registro',                       to: 'registros#nuevo',                   as: 'registro'
