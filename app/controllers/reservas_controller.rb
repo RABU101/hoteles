@@ -2,10 +2,14 @@ class ReservasController < ApplicationController
     layout 'layout_cliente'
     # GET /reserva/:id_habitacion
     def nueva
-        @habitacion = Habitacion.find(params[:id_habitacion])
-        @usuario = Usuario.find(cookies[:usuario_id])
-        @reserva = Reserva.new
-        
+        if cookies[:usuario_id]
+            @habitacion = Habitacion.find(params[:id_habitacion])
+            @usuario = Usuario.find(cookies[:usuario_id])
+            @reserva = Reserva.new
+        else
+            #falta mensaje de error cuando cookies[:usuario_id] es nil
+            redirect_to root_path
+        end    
     end
     
     # POST /reservas/:id_habitacion
