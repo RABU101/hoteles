@@ -1,7 +1,7 @@
 class PaginasController < ApplicationController
 
     layout 'layout_cliente' # Definiendo el layout a utilizar
-    before_action :valida_sesion
+    before_action :valida_sesion_sin_redirigir
 
     def principal
         
@@ -36,12 +36,4 @@ class PaginasController < ApplicationController
         #@usuario = Usuario.new
     end
    
-    private
-    def valida_sesion
-        if cookies[:usuario_id]
-            @usuario = Usuario.find(cookies[:usuario_id])
-        end
-    rescue        
-        @usuario = nil
-    end
 end

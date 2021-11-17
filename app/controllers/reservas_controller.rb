@@ -1,5 +1,8 @@
 class ReservasController < ApplicationController
     layout 'layout_cliente'
+    before_action :valida_sesion_redirigiendo_al_registro
+    # cuando no exista la sesón debe enviarme a registro
+
     # GET /reserva/:id_habitacion
     def nueva
         if cookies[:usuario_id]

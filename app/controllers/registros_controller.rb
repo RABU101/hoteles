@@ -1,5 +1,9 @@
 class RegistrosController < ApplicationController
     layout 'layout_cliente'
+    before_action :valida_sesion_para_el_registro
+    # cuando no tenga sesion mantener el formulario
+    # pero mostrar el botón registro
+    # cuando si tenga sesión debiese redirigir haca hoteles
 
     # GET /registro
     def nuevo
@@ -20,7 +24,6 @@ class RegistrosController < ApplicationController
     end
 
     private 
-
     def params_usuario
         return params
         .require(:usuario)
