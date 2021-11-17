@@ -1,11 +1,9 @@
 class UsuariosController < ApplicationController
-    
-    # GET /usuarios
-    def listar
-    puts "LISTAS USUARIO"
-    end
+  layout 'layout_cliente'
+  before_action :valida_sesion_sin_redirigir
+  
+  # GET /usuario/id
+  def mostrar
 
-    # GET /usuarios/nuevo
-    def nuevo
-    end
+  end
 end

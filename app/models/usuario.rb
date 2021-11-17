@@ -9,4 +9,12 @@ class Usuario < ApplicationRecord
     validates :identificacion,  presence: true
     validates :telefono,        presence: true
     validates :rol_id,          presence: true
+
+    # id
+    # nombre
+    # identificacion
+    # telefono
+    # password_digest
+    # rol_id
+    
 end

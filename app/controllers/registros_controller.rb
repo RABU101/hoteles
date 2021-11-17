@@ -25,9 +25,7 @@ class RegistrosController < ApplicationController
 
     private 
     def params_usuario
-        return params
-        .require(:usuario)
-        .permit(:nombre, :identificacion, :telefono, :password, :password_confirmation)
+        return params.require(:usuario).permit(:nombre, :identificacion, :telefono, :password, :password_confirmation)
     end
 
 end
