@@ -5,6 +5,10 @@ class Habitacion < ApplicationRecord
 
     before_validation :capitalizar_nombre
 
+    #has_one_attached :foto_portada
+  
+    has_many_attached :fotos
+  
 
     validates :nombre   , presence: true
     validates :precio   , presence: true

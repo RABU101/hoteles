@@ -2,6 +2,7 @@ Rails.application.routes.draw do
     # Principal
     root  'paginas#principal'
     get   'paginas/:id_hotel',              to: 'paginas#info_hotel',                as: 'info_hotel'
+    
 
     # Registros de Usuarios
     get   'registro',                       to: 'registros#nuevo',                   as: 'registro'
@@ -11,6 +12,10 @@ Rails.application.routes.draw do
     get     'reservas/:id_habitacion',      to: 'reservas#nueva',                    as: 'reservas'
     post    'reservas/:id_habitacion',      to: 'reservas#guardar'  
     
+    #Usuarios
+    get     'usuarios',                        to: 'usuarios#listar',                      as: 'usuarios_listar'
+    #get     'usuarios/nuevo',                  to: 'usuarios#nuevo',                       as: 'nuevo_usuario'
+
     # Roles
     get     'roles',                        to: 'roles#listar',                      as: 'roles'
     get     'roles/nuevo',                  to: 'roles#nuevo',                       as: 'nuevo_rol'

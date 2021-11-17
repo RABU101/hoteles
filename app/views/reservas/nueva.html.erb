@@ -1,22 +1,35 @@
-<%= form_with(model: @reserva) do |formulario| %>
+<div>
+    <% if @habitacion.fotos.attached? %>
+        <% @habitacion.fotos.each do |foto|%>
+            <%= image_tag foto %>
+            <% end %>
+    <% end %>
+</div>
 
+
+<%= form_with(model: @reserva) do |formulario| %>
     <div class="pt-3">
         <h4>Fechas</h4>
         <div class="card">
             <div class="card-body">
                 <div class="row">
                     <div class="col">
-                        <%= formulario.label         :fecha_ingreso, class: 'form-label' %>
-                        <%= formulario.text_field    :fecha_ingreso, class: 'form-controle' %>
-                        <% if @reserva.errors[:fecha_ingresi].any? %>
-                            <div>
+                        <%= formulario.label :fecha_ingreso, class: 'form-label' %>
+                        <%= formulario.date_field :fecha_ingreso, class: 'form-control' %>
+                        <% if @reserva.errors[:fecha_ingreso].any? %>
+                            <div class="alert alert-danger" role="alert">
                                 <%= @reserva.errors[:fecha_ingreso].first %>
                             </div>
                         <% end %>
                     </div>
-                    <div class="col">                        
-                        <%= formulario.label         :fecha_salida, class: 'form_label' %>
-                        <%= formulario.text_field    :fecha_salida, class: 'form-controle' %>
+                    <div class="col">
+                        <%= formulario.label :fecha_salida, class: 'form-label' %>
+                        <%= formulario.date_field :fecha_salida, class: 'form-control' %>
+                        <% if @reserva.errors[:fecha_salida].any? %>
+                            <div class="alert alert-danger" role="alert">
+                                <%= @reserva.errors[:fecha_salida].first %>
+                            </div>
+                        <% end %>
                     </div>
                 </div>
             </div>
@@ -49,7 +62,8 @@
         </div>
     </div>
     <div class="row mt-3">
-        <%= formulario.submit class: "btn btn-primary" do %>
+        <%= formulario.submit class: 'btn btn-primary text-white' do %>
+            <!-- TODO: Revisar cómo colocar texto personalizado -->
             Reservar por <%= @habitacion.precio %> CLP
         <% end %>
     </div>

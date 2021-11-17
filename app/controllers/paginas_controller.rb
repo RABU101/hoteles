@@ -21,7 +21,6 @@ class PaginasController < ApplicationController
             end
         end
     end
-
     # GET /paginas/:id_hotel
     def info_hotel
         # recuperar el :id_hotel que llega desde los params

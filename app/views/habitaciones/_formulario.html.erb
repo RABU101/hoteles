@@ -32,6 +32,12 @@
             </div>
         <% end %>
     </div>
+    
+    <div class="mb-3">
+        <%= formulario.label :fotos, class: 'form-label' %>
+        <%= formulario.file_field :fotos, multiple: true, class: 'form-control' %>
+    </div>
+    
     <div class="mb-3">    
         <%= formulario.label        :hotel_id, class: 'form-label' %>
         <%= formulario.select       :hotel_id, options_from_collection_for_select(p_hoteles, :id, :nombre, p_habitacion.hotel_id),
