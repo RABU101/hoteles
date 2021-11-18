@@ -17,7 +17,18 @@
             </div>
             <div class="col-3 text-end">
                 <% if @usuario_actual %>
-                    <%= link_to "#{@usuario_actual.nombre}", usuario_path, class: 'btn btn-primary text-white' %>
+                    <div class="nav-item dropdown">                
+                        <%= link_to "#{@usuario_actual.nombre}", "#", class: 'btn btn-primary text-white dropdown-toggle', id: 'navbarDropdown', role: 'button', 'data-bs-toggle':'dropdown', 'aria-expanded': false %>
+                        <ul class="dropdown-menu" aria-labelledby="NavbarDropdown">
+                            <li>
+                                <%= link_to "Ver Perfil", usuario_path, class: 'dropdown-item' %>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <%= link_to "Cerrar Sesión", "#", class: 'dropdown-item' %>
+                            </li>
+                        </ul>
+                    </div>
                 <% else  %>
                     <%= link_to "💻 Registrarse", registro_path, class: 'btn btn-primary text-white' %>
                 <% end %>
