@@ -4,6 +4,9 @@ class UsuariosController < ApplicationController
   
   # GET /usuario/id
   def mostrar
-
+    @texto_boton = "Actualizar Usuaro"
   end
+  def listar
+  end
+
 end

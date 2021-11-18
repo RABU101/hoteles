@@ -17,7 +17,7 @@
             </div>
             <div class="col-3 text-end">
                 <% if @usuario_actual %>
-                    <%= link_to "#{@usuario_actual.nombre}", usuario_path(@usuario_actual), class: 'btn btn-primary text-white' %>
+                    <%= link_to "#{@usuario_actual.nombre}", usuario_path, class: 'btn btn-primary text-white' %>
                 <% else  %>
                     <%= link_to "💻 Registrarse", registro_path, class: 'btn btn-primary text-white' %>
                 <% end %>

@@ -4,7 +4,8 @@ Rails.application.routes.draw do
     get   'paginas/:id_hotel',              to: 'paginas#info_hotel',                as: 'info_hotel'
   
     # Usuario
-    get  'usuarios/:id',                    to: 'usuarios#mostrar',                  as: 'usuario'
+    get   'perfil',                    to: 'usuarios#mostrar',                  as: 'usuario'
+    #patch 'usuarios/:id',                    to: 'usuarios#actualizar',                   as: 'usuario_actualizar'
 
     # Registros de Usuarios
     get   'registro',                       to: 'registros#nuevo',                   as: 'registro'

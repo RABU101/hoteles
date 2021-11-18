@@ -5,9 +5,10 @@ class ReservasController < ApplicationController
 
     # GET /reserva/:id_habitacion
     def nueva
-        if cookies[:usuario_id]
+        #if cookies[:usuario_id]
+        if session[:usuario_id]
             @habitacion = Habitacion.find(params[:id_habitacion])
-            @usuario = Usuario.find(cookies[:usuario_id])
+            @usuario = Usuario.find(session[:usuario_id])
             @reserva = Reserva.new
         else
             #falta mensaje de error cuando cookies[:usuario_id] es nil
@@ -19,7 +20,7 @@ class ReservasController < ApplicationController
     def guardar
         @reserva = Reserva.new(params_reserva) #() porque viene de la url
         @reserva.habitacion_id = params[:id_habitacion] #[] porque viene del formulario
-        @reserva.usuario_id = cookies[:usuario_id]
+        @reserva.usuario_id = session[:usuario_id]
         @reserva.codigo = SecureRandom.alphanumeric(5)
 puts @Reserva        
         if @reserva.save

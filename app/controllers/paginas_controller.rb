@@ -3,11 +3,9 @@ class PaginasController < ApplicationController
     layout 'layout_cliente' # Definiendo el layout a utilizar
     before_action :valida_sesion_sin_redirigir
 
-    def principal
-        
+    def principal           
         @hoteles_encontrados = Hotel.all.shuffle
         @ciudades_encontradas = Ciudad.all
-
         if params[:busqueda]
             # 1. Recuperando todos mis hoteles en la BD
             # @hoteles_encontrados = Hotel.all  
