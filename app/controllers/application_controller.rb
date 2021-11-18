@@ -33,4 +33,8 @@ class ApplicationController < ActionController::Base
             @usuario_actual = nil            
         end
     end
+
+    def not_found
+        puts "ERROR 404"
+    end
 end
