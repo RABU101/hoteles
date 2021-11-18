@@ -6,8 +6,9 @@ class ApplicationController < ActionController::Base
         end
     rescue        
         #cookies.delete(:usuario_id)
-        session.delete(:usuario_id)
-        @usuario = nil
+        #session.delete(:usuario_id)
+        session[:usuario_id] = nil
+        @usuario_actual = nil
     end
     
     def valida_sesion_redirigiendo_al_registro
@@ -19,7 +20,7 @@ class ApplicationController < ActionController::Base
         end
     rescue        
         #cookies.delete(:usuario_id)
-        session.delete(:usuario_id)
+        session[:usuario_id] = nil
         redirect_to registro_path
     end
     def valida_sesion_para_el_registro
@@ -28,7 +29,7 @@ class ApplicationController < ActionController::Base
             redirect_to root_path
         else
             #cookies.delete(:usuario_id)
-            session.delete(:usuario_id)
+            session[:usuario_id] = nil
             @usuario_actual = nil            
         end
     end

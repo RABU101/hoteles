@@ -4,19 +4,23 @@ Rails.application.routes.draw do
     get   'paginas/:id_hotel',              to: 'paginas#info_hotel',                as: 'info_hotel'
   
     # Usuario
-    get   'perfil',                    to: 'usuarios#mostrar',                  as: 'usuario'
+    get      'perfil',                      to: 'usuarios#mostrar',                  as: 'usuario'
+    get      'iniciar_sesion',              to: 'usuarios#iniciar_sesion',           as: 'iniciar_sesion'
+    post     'iniciar_sesion',              to: 'usuarios#buscar',                   as: 'buscar_sesion'
+    delete   'cerrar_sesion',               to: 'usuarios#cerrar_sesion',            as: 'cerrar_sesion'
+
     #patch 'usuarios/:id',                    to: 'usuarios#actualizar',                   as: 'usuario_actualizar'
 
     # Registros de Usuarios
-    get   'registro',                       to: 'registros#nuevo',                   as: 'registro'
-    post  'usuarios',                       to: 'registros#guardar',                 as: 'usuarios'  #Crea usuarios normales
+    get     'registro',                     to: 'registros#nuevo',                   as: 'registro'
+    post    'usuarios',                     to: 'registros#guardar',                 as: 'usuarios'  #Crea usuarios normales
 
     # Reservaciones
     get     'reservas/:id_habitacion',      to: 'reservas#nueva',                    as: 'reservas'
     post    'reservas/:id_habitacion',      to: 'reservas#guardar'  
     
     #Usuarios
-    get     'usuarios',                        to: 'usuarios#listar',                      as: 'usuarios_listar'
+    get     'usuarios',                     to: 'usuarios#listar',                   as: 'usuarios_listar'
     #get     'usuarios/nuevo',                  to: 'usuarios#nuevo',                       as: 'nuevo_usuario'
 
     # Roles

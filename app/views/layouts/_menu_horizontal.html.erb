@@ -25,12 +25,15 @@
                             </li>
                             <li><hr class="dropdown-divider"></li>
                             <li>
-                                <%= link_to "Cerrar Sesión", "#", class: 'dropdown-item' %>
+                                <%= link_to "Cerrar Sesión", cerrar_sesion_path, method: :delete, class: 'dropdown-item' %>
                             </li>
                         </ul>
                     </div>
                 <% else  %>
-                    <%= link_to "💻 Registrarse", registro_path, class: 'btn btn-primary text-white' %>
+                        <%= link_to "💻 Registrarse", registro_path, class: 'btn btn-primary text-white' %>
+                        <% if !@usuario_actual %>                            
+                            <%= link_to "💻 Iniciar Sesión", iniciar_sesion_path, class: 'btn btn-primary text-white' %>                            
+                        <% end %>
                 <% end %>
             </div>       
         </div>        
