@@ -1,6 +1,6 @@
 class UsuariosController < ApplicationController
   layout 'layout_cliente'
-  before_action :valida_sesion_sin_redirigir, only: [:mostra, :cerrar_sesion]
+  before_action :valida_sesion_sin_redirigir, only: [:mostrar, :cerrar_sesion, :actualizar]
   before_action :valida_sesion_para_el_registro, only: [:iniciar_sesion]
   
   # GET /usuario/id
@@ -40,6 +40,16 @@ class UsuariosController < ApplicationController
       render :iniciar_sesion
     end
   end
+  # PATCH /perfil
+  def actualizar
+    if @usuario_actual.update(params_usuario)
+      flash[:actualziar_usuario] = "Datos actualizados"
+      redirect_to usuario_path  #con redirect_to se pierden los datos enviados
+    else
+      render :mostrar
+    end
+  end
+  
   private 
   def params_usuario
       return params.require(:usuario).permit(:nombre, :identificacion, :telefono, :password, :password_confirmation)
