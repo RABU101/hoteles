@@ -16,9 +16,11 @@ class HotelesController < ApplicationController
 
     # GET /hoteles
     def listar
-        @lista_hoteles = Hotel.all
+        puts "INICIA LISTAR HOTELES"
+        #@lista_hoteles = Hotel.all  # consulta de n+1
+        @lista_hoteles = Hotel.includes(:ciudad, :habitaciones)
         #@ciudades =Ciudad.all
-
+        
     end
 
     # GET /hoteles/_id

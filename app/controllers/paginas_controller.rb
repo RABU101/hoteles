@@ -4,8 +4,10 @@ class PaginasController < ApplicationController
     before_action :valida_sesion_sin_redirigir
 
     def principal           
-        @hoteles_encontrados = Hotel.all.shuffle
-        @ciudades_encontradas = Ciudad.all
+        #@hoteles_encontrados = Hotel.all.shuffle
+        @hoteles_encontrados = Hotel.includes(:ciudad).shuffle
+        #@ciudades_encontradas = Ciudad.all
+        @ciudades_encontradas = Ciudad.includes(:hoteles)
         if params[:busqueda]
             # 1. Recuperando todos mis hoteles en la BD
             # @hoteles_encontrados = Hotel.all  

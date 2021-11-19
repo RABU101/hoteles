@@ -5,7 +5,8 @@ class CiudadesController < ApplicationController
 
     # GET /ciudades
     def listar
-        @lista_ciudades = Ciudad.all
+        #@lista_ciudades = Ciudad.all
+        @lista_ciudades = Ciudad.includes(:hoteles)
     end
 
     # GET /ciudades/nuevo

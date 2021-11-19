@@ -5,7 +5,9 @@ class HabitacionesController < ApplicationController
     
     # GET /habitaciones
     def listar
-        @habitaciones = Habitacion.all
+        #@habitaciones = Habitacion.all
+        @habitaciones = Habitacion.includes(:hotel)
+
     end
 
     # GET /habitaciones/nueva
