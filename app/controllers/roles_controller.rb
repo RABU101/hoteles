@@ -1,5 +1,6 @@
 class RolesController < ApplicationController
     before_action :asignar_rol, only: [:editar, :actualizar, :eliminar]
+    before_action :validar_sesion_adminstrador
 
     # GET /roles
     def listar

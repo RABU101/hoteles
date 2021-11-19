@@ -26,7 +26,12 @@ class UsuariosController < ApplicationController
     if usuario_encontrado
       if usuario_encontrado.authenticate(params[:password])
         session[:usuario_id] = usuario_encontrado.id
-        redirect_to root_path
+        @usuario_actual = Usuario.find(session[:usuario_id])
+        if @usuario_actual.rol == Rol.find_by(rol: 'Administrador')
+          redirect_to hoteles_path
+        else
+          redirect_to root_path
+        end
       else
         # enviar error de contraseña
         flash[:error_iniciar_sesion] = "Password no coincide"

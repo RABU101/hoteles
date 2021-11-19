@@ -1,6 +1,7 @@
 class CiudadesController < ApplicationController
 
     before_action :asignar_ciudad, only: [:mostrar, :editar, :actualizar, :eliminar]
+    before_action :validar_sesion_adminstrador
 
     # GET /ciudades
     def listar

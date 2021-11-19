@@ -1,5 +1,6 @@
 class HotelesController < ApplicationController
     before_action :asignar_hotel, only: [:mostrar, :editar, :actualizar, :eliminar]
+    before_action :validar_sesion_adminstrador
 
     # Get /hoteles/nuevo
     def nuevo

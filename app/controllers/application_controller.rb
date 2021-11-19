@@ -33,6 +33,20 @@ class ApplicationController < ActionController::Base
             @usuario_actual = nil            
         end
     end
+    
+    def validar_sesion_adminstrador
+        if session[:usuario_id]
+            @usuario_actual = Usuario.find(session[:usuario_id])
+            if @usuario_actual.rol != Rol.find_by(rol: 'Administrador')
+                redirect_to root_path
+            end
+        else
+            redirect_to root_path
+        end  
+    rescue
+        session[:usuario_id] = nil
+        redirect_to root_path
+    end
 
     def not_found
         puts "ERROR 404"
