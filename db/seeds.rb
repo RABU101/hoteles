@@ -10,6 +10,11 @@
 # Definido la creación de 2 roles en una base de datos nueva
 
 # destruir las tablas antes de cargar, en caso de querer borrar las tablas primero
+Usuario.destroy_all
+Rol.destroy_all
+Ciudad.destroy_all
+Reserva.destroy_all
+Habitacion.destroy_all
 Hotel.destroy_all
 
 Rol.create([
@@ -47,7 +52,7 @@ puts "Ciudades creadas"
 end
 puts "Hoteles creados"
 # carga tabla con faker: Habitaciones
-600.times do
+60.times do
     Habitacion.create(
         {
             nombre: Faker::Science.scientist,
