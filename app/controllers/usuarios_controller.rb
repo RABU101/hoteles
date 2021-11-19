@@ -1,8 +1,11 @@
 class UsuariosController < ApplicationController
   layout 'layout_cliente'
-  before_action :valida_sesion_sin_redirigir, only: [:mostrar, :cerrar_sesion, :actualizar]
+  before_action :valida_sesion_sin_redirigir, only: [:mis_reservas, :mostrar, :cerrar_sesion, :actualizar]
   before_action :valida_sesion_para_el_registro, only: [:iniciar_sesion]
-  
+  # GET /mis_reservas
+  def mis_reservas
+
+  end
   # GET /usuario/id
   def mostrar
     @texto_boton = "Actualizar Usuario"

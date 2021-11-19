@@ -16,7 +16,7 @@ class HotelesController < ApplicationController
 
     # GET /hoteles
     def listar
-        puts "INICIA LISTAR HOTELES"
+        #puts "INICIA LISTAR HOTELES"
         #@lista_hoteles = Hotel.all  # consulta de n+1
         @lista_hoteles = Hotel.includes(:ciudad, :habitaciones)
         #@ciudades =Ciudad.all
