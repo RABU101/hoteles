@@ -3,9 +3,10 @@
 //@import 'ciudades';
 
 // Todas las variables CSS van antes del import (si son de bootstrap)
-$primary: #000;
-$danger: orange;
-$warning: cyan;
+$primary: #2F86A6;
+$secondary: #34BE82;
+$warning: #F2F013;
+$danger: #FF9292;
 
 // fin
 @import '~bootstrap/scss/bootstrap';
@@ -24,14 +25,17 @@ body {
     position: fixed;
     background: $fondo-menu;
     height: 100%;
-    color: white;    
+    color: white;  
+    padding-left: 2rem;    
     
     .titulo {
         padding: 1rem;
+        margin: 2rem 0;
     }
     
     ul {
         list-style: none;
+        padding: 0;
     }
     
     li .opcion{
@@ -40,10 +44,20 @@ body {
         display: block;
         color: white;
         cursor: pointer;
-        &:hover {
+        
+        &:hover{
             background-color: white;
             color: $fondo-menu;
         }
     }
 }
+
+a {
+    .card {
+        text-decoration: none;
+    }
+}
     
+.card {
+    
+}

@@ -1,11 +1,15 @@
 <%= form_with(model: p_rol) do |formulario| %>
-    <%= formulario.label        :rol,  class: "form-label" %>
-    <%= formulario.text_field   :rol, class: "form-control" %>
-    <% if p_rol.errors[:rol].any? %>
-        <div>
-            <%= p_rol.errors[:rol].first %>
-        </div>
-    <% end %>
-    <%= link_to "Cancelar", roles_path, class: "btn btn-secondary" %>
-    <%= formulario.submit "Actualizar", class: "btn btn-primary" %>
+    <div class="mb-3">
+        <%= formulario.label        :rol,  class: "form-label" %>
+        <%= formulario.text_field   :rol, class: "form-control" %>
+        <% if p_rol.errors[:rol].any? %>
+            <div class="alert alert-danger">
+                <%= p_rol.errors[:rol].first %>
+            </div>
+        <% end %>
+    </div>
+    <div class="mb-3 text-end">
+        <%= link_to "Cancelar", roles_path, class: "btn btn-secondary" %>
+        <%= formulario.submit p_texto_boton, class: "btn btn-primary" %>
+    </div>
 <% end %>

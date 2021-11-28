@@ -1,0 +1,19 @@
+<div class="card mb-3">
+    <div class="card-body">
+        <h5>
+            <%= @hotel.id %>
+            <%= @hotel.nombre %>
+        </h5>
+        <% if @hotel.habitaciones.any? %>
+            <table class="table">
+                <% @hotel.habitaciones.each do |h| %>
+                    <tr>
+                        <td><%= h.nombre %></td>
+                    </tr>
+                <% end %>
+            </table>
+        <% else %>
+            SIN HAITACION REGISTRADO
+        <% end %>
+    </div>
+</div>

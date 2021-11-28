@@ -1,6 +1,7 @@
 class Reserva < ApplicationRecord
-    belongs_to :habitacion
-    belongs_to :usuario
-  end
+  belongs_to :usuario     # una reserva le pertenece a un usuario
+  belongs_to :habitacion  # una reserva le pertenece a una habitación
 
-  #belong_to: tiene uno
+  validates :fecha_ingreso, presence: true
+  validates :fecha_salida,  presence: true
+end

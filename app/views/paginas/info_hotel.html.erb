@@ -1,0 +1,21 @@
+<div class="row">
+    <% if @hotel_encontrado.foto_portada.attached? %>
+        <%= image_tag @hotel_encontrado.foto_portada %>
+    <% end %>
+    <h2><%= @hotel_encontrado.nombre %></h2>
+    <h5><%= @hotel_encontrado.ciudad.nombre %></h5>
+    <div class="mt-3">
+        <% @hotel_encontrado.estrellas.times do %>
+        ⭐
+        <% end %>
+    </div>
+    <h4>Habitaciones: <%= @hotel_encontrado.habitaciones.count %></h4>
+    <div class="row">
+        <% @hotel_encontrado.habitaciones.each do |h| %>
+            <%= link_to reservas_path(h), class: 'col text-decoration-none p-3' do %>
+                <%= render "tarjeta", p_titulo: h.nombre, p_subtitulo: h.precio %>
+            <% end %>
+        <% end %>
+    </div>
+    
+</div>

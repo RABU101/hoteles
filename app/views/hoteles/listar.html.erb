@@ -1,4 +1,9 @@
 <h4 class="mb-3">Lista de Hoteles</h4>
+<% if flash[:error_hotel] %>
+    <div class="alert alert-warning" role="alert">
+        <%= flash[:error_hotel] %>
+    </div>
+<% end %>
 <div class="card">
   <div class="card-body">
     <table class="table table-hover">
@@ -7,6 +12,8 @@
             <th>Nombre</th>
             <th>Estrellas</th>
             <th>Ciudad</th>
+            <th class="text-center">Habitaciones</th>
+            <th>Foto</th>
             <th class="text-center">Acciones</th>
         </tr>
         <% @lista_hoteles.each do |c| %>
@@ -25,6 +32,17 @@
                 <td>
                     <%= c.ciudad.nombre %>
                 </td>
+                <td class="text-center">
+                    <% if c.habitaciones.any? %>
+                        <%=  link_to c.habitaciones.count, mostrar_hotel_path(c) %>
+                    <% else %>
+                    <%= link_to "Registrar Habitación", nueva_habitacion_con_hotel_path(c), class: 'btn btn-primary text-white'%>
+                    <% end %>
+                </td>
+                <td>FOTO
+        
+                </td>
+
                 <td class="text-center">
                     <%= link_to "Editar", editar_hotel_path(c), class: "btn btn-warning" %>
                     <%= link_to "Eliminar", hotel_path(c), class: "btn btn-danger", 

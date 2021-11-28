@@ -1,19 +1,21 @@
-# Reciben peticiones y devuelven vistas
 class RolesController < ApplicationController
     before_action :asignar_rol, only: [:editar, :actualizar, :eliminar]
+    before_action :validar_sesion_adminstrador
 
     # GET /roles
     def listar
         @roles = Rol.all
     end
     # GET /roles/nuevo
-    def mostrar_formulario_crear
+    def nuevo
         #mostrar formulario para guardar roles nuevos
         #@mi_nombre = "Rodrigo Bravo Urzúa"
         @rol = Rol.new
+        @texto = "Crear Rol"
     end
     # GET /roles/:id/editar
     def editar
+        @texto = "Actualizar Rol"
     end
     # POST /roles
     def guardar
@@ -33,6 +35,7 @@ class RolesController < ApplicationController
     # PATH /roles/:id
     def actualizar
         @rol.rol = params_rol[:rol]
+        puts ">>>>actualizar rol<<<<"
         if @rol.save
             redirect_to roles_path
         else
@@ -43,9 +46,12 @@ class RolesController < ApplicationController
     def eliminar
         @rol.destroy
         redirect_to roles_path
+    rescue
+        flash[:error_rol] = "No se puede eliminar el Rol porque hay Usuarios registrados en #{@usuario.nombre}"
+        redirect_to ciudades_path        
+
     end
     private # Todo lo que está abajo 👇👇 es PRIVADO
-    
     # recuperamos el :id de la URL 📦 y lo buscamos en la base de datos
     def asignar_rol
         @rol = Rol.find_by(id: params[:id])

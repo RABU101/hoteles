@@ -1,9 +1,20 @@
 class Usuario < ApplicationRecord
-    belongs_to :rol
-    has_many :reservas
-    has_many :habitaciones, through: :reservas
-  end
+    has_secure_password     #método para decir que guarde la password encriptada
 
-  #has_many: tiene muchos
-  #belong_to: tiene uno
-  #through: a traves de
+    belongs_to  :rol
+    has_many    :reservas
+    has_many    :habitaciones, through: :reservas
+
+    validates   :nombre,          presence: true
+    validates   :identificacion,  presence: true
+    validates   :telefono,        presence: true
+    validates   :rol_id,          presence: true
+
+    # id
+    # nombre
+    # identificacion
+    # telefono
+    # password_digest
+    # rol_id
+    
+end

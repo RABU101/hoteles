@@ -1,0 +1,31 @@
+<div class="card mb-3">
+    <div class="card-body">
+        <h5>                    
+            <%= @hotel.id %>
+            <%= @hotel.nombre %>
+            <%= @texto %>
+            <%= @ciudad %>
+        </h5>
+        <% if @hotel.habitaciones.any? %>
+            <table class="table">
+                <th>Habitación</th>
+                <th>Esta Reservada</th>                
+                <% @hotel.habitaciones.each do |h| %>
+                    <tr>
+                        <td><%= h.nombre %></td>
+                        <td>
+                            <%= if h.esta_reservada == true 
+                                    "Reservada" 
+                                else
+                                    "Disponible"
+                                end %>
+                                            
+                        </td>                            
+                    </tr>
+                <% end %>
+            </table>
+        <% else %>
+            SIN HABITACION REGISTRADA
+        <% end %>
+    </div>
+</div>

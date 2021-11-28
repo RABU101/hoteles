@@ -1,0 +1,9 @@
+<h1> 
+    Perfil de <%= @usuario_actual.nombre %>
+</h1>
+<div class="card-title">
+    <% if flash[:actualziar_usuario] %>
+        <%   flash[:actualziar_usuario] %>
+    <% end %>
+</div>
+<%= render "compartidos/formulario_usuario", p_parcial: @usuario_actual, p_texto_boton: @texto_boton %>
