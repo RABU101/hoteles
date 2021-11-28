@@ -3,7 +3,7 @@ class ReservasController < ApplicationController
     before_action :valida_sesion_redirigiendo_al_registro
     # cuando no exista la sesón debe enviarme a registro
 
-    # GET /reserva/:id_habitacion
+    # GET /reservas/:id_habitacion
     def nueva
         #if cookies[:usuario_id]
         #if session[:usuario_id]

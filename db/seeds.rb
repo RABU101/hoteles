@@ -62,3 +62,4 @@ puts "Hoteles creados"
         }
     )
 end
+puts "Habitaciones creadas"
