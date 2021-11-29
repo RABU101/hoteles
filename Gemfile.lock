@@ -215,14 +215,14 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
-  bcrypt_pbkdf (>= 1.0, < 2.0)
+  bcrypt_pbkdf
   bootsnap (>= 1.4.4)
   byebug
   capistrano (~> 3.11)
   capistrano-passenger (~> 0.2.0)
   capistrano-rails (~> 1.4)
   capistrano-rbenv (~> 2.1, >= 2.1.4)
-  ed25519 (>= 1.2, < 2.0)
+  ed25519
   faker
   jbuilder (~> 2.7)
   pg
