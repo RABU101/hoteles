@@ -44,22 +44,16 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# Faker
 gem 'faker'
 
-# Despliegue
 gem 'capistrano', '~> 3.11'
 gem 'capistrano-rails', '~> 1.4'
 gem 'capistrano-passenger', '~> 0.2.0'
 gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
 
 group :production do
-  gem 'pg' #  Gema que instala y configura el adapter de POSTGRESQL
+  gem 'pg' # Gema que instala y configura el aadapter de POSTGRESQL
 end
 
-gem 'ed25519', '>= 1.2', '< 2.0'
-gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
-
-#gem 'erb_lint', require: false
-
-
+gem 'ed25519'
+gem 'bcrypt_pbkdf'

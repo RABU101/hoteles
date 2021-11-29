@@ -4,6 +4,8 @@ class PaginasController < ApplicationController
     before_action :valida_sesion_sin_redirigir
 
     def principal           
+        # PAra enviar correo
+        ReservaMailer.enviar_confirmacion.deliver_later
         #@hoteles_encontrados = Hotel.all.shuffle
         @hoteles_encontrados = Hotel.includes(:ciudad).shuffle
         #@ciudades_encontradas = Ciudad.all
